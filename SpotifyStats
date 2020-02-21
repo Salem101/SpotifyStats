@@ -6,7 +6,7 @@ import java.util.*;
 public class MusicStats {
 //	private static final String[] String = null;
 
-	public static void main(String[]args) throws Exception{
+	public static void main(String[]args) throws IOException{
 		//Read in file using bufferreader
 		FileReader file = new FileReader("C:\\Users\\rivka\\Downloads\\SpotifyStats.csv"); 
 
@@ -42,21 +42,20 @@ public class MusicStats {
 	System.out.println("The most streamed artist: " + artists.get(0));
 	
 	//Lets sort the arraylist to put artists in alphabetical order, used import from java.util
-    System.out.println("Before Sort: " + artists); 
+//    System.out.println("Before Sort: " + artists); 
 	Collections.sort(artists);
-	System.out.println("After Sort: "+ artists); 
+	System.out.println("Sorted Artists List: "+ artists); 
 	System.out.println(artists); 
 
 	
-	//Remove duplicates from artists arraylist
+	//Remove duplicates from artists arraylist using LinkedHashSet
 	  Set<String> removed = new LinkedHashSet<String>(artists); 
-	  System.out.println(artists);
 	  System.out.println(removed); 
 	  
-	  FileWriter export = new FileWriter("Results"); 
-	  PrintWriter printer= new PrintWriter(export); 
-	  printer.println("Most Streamed Artist: " + artists.get(1)); 
-	  printer.println("Alphabetical Ordered Artists List" + removed);
+	  BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\rivka\\eclipse-workspace\\Rivka 2019\\output.txt"));
+	  writer.write("Most streamed Artist: "+ artists.get(0)); 
+	  writer.write("Artists names in alphabetical order: " + removed);
+
 	}
 }
 
