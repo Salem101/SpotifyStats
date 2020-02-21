@@ -39,23 +39,26 @@ public class MusicStats {
 			
 		}
 	br.close();  
-	System.out.println("The most streamed artist: " + artists.get(0));
 	
 	//Lets sort the arraylist to put artists in alphabetical order, used import from java.util
-//    System.out.println("Before Sort: " + artists); 
+   System.out.println("\nBefore Sorting: " + artists); 
 	Collections.sort(artists);
-	System.out.println("Sorted Artists List: "+ artists); 
-	System.out.println(artists); 
-
+	System.out.println("\nSorted Artists List: "+ artists); 
 	
 	//Remove duplicates from artists arraylist using LinkedHashSet
 	  Set<String> removed = new LinkedHashSet<String>(artists); 
-	  System.out.println(removed); 
+	  System.out.println("\nList of artists duplicates removed: " + removed); 
 	  
-	  BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\rivka\\eclipse-workspace\\Rivka 2019\\output.txt"));
-	  writer.write("Most streamed Artist: "+ artists.get(0)); 
-	  writer.write("Artists names in alphabetical order: " + removed);
+	  System.out.println("\nMost streamed Artist: "+ artists.get(0));
+	  System.out.println("");
+	  System.out.println("Artists names in alphabetical order: " + removed);
 
+	    FileWriter fileWriter = new FileWriter("C:\\Users\\rivka\\eclipse-workspace\\Rivka 2019\\output.txt");
+	    PrintWriter printWriter = new PrintWriter(fileWriter);
+	    printWriter.println("Most streamed Artist: "+ artists.get(0)); 
+	    printWriter.println("Artists names in alphabetical order: " + removed);
+	    printWriter.close();
+	  
 	}
 }
 
