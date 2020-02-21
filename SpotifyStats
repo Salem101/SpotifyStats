@@ -17,10 +17,9 @@ public class MusicStats {
 		ArrayList<String> artists = new ArrayList<String>();
 		ArrayList<String> streams = new ArrayList<String>();
 		ArrayList<String> links = new ArrayList<String>(); 
-		String line = br.readLine(); 
-		String readLine = ""; 
+		String line;
 		
-		while ((readLine = br.readLine()) != null) {	
+		while ((line = br.readLine()) != null) {	
 		String []info = line.split(","); 
 			
 			String pos = info[0]; 
@@ -40,7 +39,7 @@ public class MusicStats {
 			
 		}
 	br.close();  
-	System.out.println("The most streamed artist: " + artists.get(1));
+	System.out.println("The most streamed artist: " + artists.get(0));
 	
 	//Lets sort the arraylist to put artists in alphabetical order, used import from java.util
     System.out.println("Before Sort: " + artists); 
