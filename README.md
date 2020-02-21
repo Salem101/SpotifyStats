@@ -5,6 +5,8 @@ Imported java.util.*; for the BufferedReader and ArraysLIsts;
 
 The main function throws IOExcpetion because it'll read an imported file. 
 
+*The imported file I got from Spotify.com and downloaded the daily Streaming stats!
+
 In order to find the info I used the FileReader & BufferedReader to import the file. 
 (I tried to enter the data in the 2D Array but I couldn't figure out how to transfer the data into the 2D array- even with a nested loop) If I figure it out I'll update it. 
 
