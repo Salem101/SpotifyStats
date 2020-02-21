@@ -41,7 +41,7 @@ public class MusicStats {
 	br.close();  
 	
 	//Lets sort the arraylist to put artists in alphabetical order, used import from java.util
-   System.out.println("\nBefore Sorting: " + artists); 
+   System.out.println("\nBefore Sorting Artists List: " + artists); 
 	Collections.sort(artists);
 	System.out.println("\nSorted Artists List: "+ artists); 
 	
