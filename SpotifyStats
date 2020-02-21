@@ -4,10 +4,13 @@ import java.util.*;
 //Rivka Salem 
 
 public class MusicStats {
+//	private static final String[] String = null;
+
 	public static void main(String[]args) throws Exception{
 		//Read in file using bufferreader
-		File file = new File("C:\\Users\\rivka\\Downloads\\SpotifyStats.csv"); 
-		BufferedReader br = new BufferedReader(new FileReader(file)); 
+		FileReader file = new FileReader("C:\\Users\\rivka\\Downloads\\SpotifyStats.csv"); 
+
+		BufferedReader br = new BufferedReader(file); 
 		
 		ArrayList<String> positions = new ArrayList<String>();
 		ArrayList<String> tracks = new ArrayList<String>();
@@ -15,32 +18,56 @@ public class MusicStats {
 		ArrayList<String> streams = new ArrayList<String>();
 		ArrayList<String> links = new ArrayList<String>(); 
 		String line = br.readLine(); 
+		String readLine = ""; 
 		
-		while ( line !=null) {
+		while ((readLine = br.readLine()) != null) {	
+		String []info = line.split(","); 
 			
-			String[]data = line.split(","); 
-			
-			String pos = data[0];
+			String pos = info[0]; 
 			positions.add(pos); 
 			
-			String tr = data[1]; 
+			String tr = info[1]; 
 			tracks.add(tr); 
 			
-			String art = data[2]; 
+			String art = info[2]; 
 			artists.add(art);
 			
-			String str = data[3]; 
+			String str = info[3]; 
 			streams.add(str);
 			
-			String lnk = data[4]; 
+			String lnk = info[4]; 
 			links.add(lnk); 
 			
 		}
-	br.close(); 
+	br.close();  
+	System.out.println("The most streamed artist: " + artists.get(1));
 	
-	for (int i = 0; i< artists.size(); i++) {
-		System.out.println(artists.get(i)); 
-	}
-		
+	//Lets sort the arraylist to put artists in alphabetical order, used import from java.util
+    System.out.println("Before Sort: " + artists); 
+	Collections.sort(artists);
+	System.out.println("After Sort: "+ artists); 
+	System.out.println(artists); 
+
+	
+	//Remove duplicates from artists arraylist
+	  Set<String> removed = new LinkedHashSet<String>(artists); 
+	  System.out.println(artists);
+	  System.out.println(removed); 
+	  
+	  FileWriter export = new FileWriter("Results"); 
+	  PrintWriter printer= new PrintWriter(export); 
+	  printer.println("Most Streamed Artist: " + artists.get(1)); 
+	  printer.println("Alphabetical Ordered Artists List" + removed);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
